@@ -1,0 +1,6 @@
+httpx>=0.27
+PyYAML>=6.0
+
+# Optional: Google Sheet integration
+# gspread>=6.0
+# google-auth>=2.0

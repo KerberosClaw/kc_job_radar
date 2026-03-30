@@ -1,0 +1,3 @@
+# Run radar at 09:00 and 18:00 daily (Asia/Taipei)
+0 9 * * * /app/scripts/run_radar.sh
+0 18 * * * /app/scripts/run_radar.sh

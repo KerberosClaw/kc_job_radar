@@ -1,0 +1,60 @@
+# === 搜尋條件 ===
+search:
+  keywords:
+    - "AI工程師"
+    - "後端工程師"
+  areas:
+    - "6001001000"  # 台北市
+    # - "6001002000"  # 新北市
+    # - "6001008000"  # 台中市
+  max_pages: 3      # 每組關鍵字最多抓幾頁
+
+# === 篩選規則 ===
+filter:
+  min_salary_annual: 1000000  # 年薪門檻（元）
+  accept_negotiable: true      # 「面議」是否收進來
+  exclude_keywords:            # 排除含這些關鍵字的職缺
+    - "博弈"
+    - "棋牌"
+    - "直銷"
+  allowed_locations:           # 只保留這些地區的職缺（空 = 不限）
+    - "台北市"
+    - "新北市"
+    - "台中市"
+  max_experience_years: null   # null = 不限
+
+# === 反爬設定 ===
+rate_limit:
+  min_sleep: 3
+  max_sleep: 8
+
+# === Google Sheet（選填，不填則不寫 Sheet）===
+# google_sheet:
+#   sheet_id: "your-google-sheet-id"
+#   credentials_path: "credentials.json"  # Docker: /app/credentials.json, 本機: 絕對路徑
+#   radar_tab: "雷達"       # 雷達結果寫入的 tab
+#   active_tab: "追蹤中"    # 去重比對 + refresh 用
+#   archive_tab: "封存"     # 去重比對 + 自動封存用
+
+# === 輕量評估（選填，用於 scout 指令）===
+# scout:
+#   my_skills:
+#     - "Python"
+#     - "Java"
+#     - "Docker"
+#     - "AI"
+#     - "LLM"
+#   red_flags:
+#     - "抗壓"
+#     - "責任制"
+
+# === Telegram 通知（選填）===
+# telegram:
+#   bot_token: "your-bot-token"
+#   chat_id: "your-chat-id"
+
+# === Gmail 監聽 104 通知信（選填）===
+# gmail:
+#   client_secret_path: "gmail_client_secret.json"
+#   token_path: "gmail_token.json"
+#   watch_sender: "104news@ms1.104.com.tw"

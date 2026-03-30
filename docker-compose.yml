@@ -1,0 +1,53 @@
+x-common: &common
+  build: .
+  volumes:
+    - ./config.yaml:/app/config.yaml:ro
+    - ./credentials.json:/app/credentials.json:ro
+    - ./gmail_client_secret.json:/app/gmail_client_secret.json:ro
+    - ./gmail_token.json:/app/gmail_token.json:ro
+    - ./data:/app/data
+    - ./.cache:/app/.cache
+
+services:
+  cron:
+    build:
+      context: .
+      dockerfile: Dockerfile.cron
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Taipei
+    volumes:
+      - ./config.yaml:/app/config.yaml:ro
+      - ./credentials.json:/app/credentials.json:ro
+      - ./gmail_client_secret.json:/app/gmail_client_secret.json:ro
+      - ./gmail_token.json:/app/gmail_token.json:ro
+      - ./data:/app/data
+      - ./.cache:/app/.cache
+
+  radar:
+    <<: *common
+    command: python3 -m src.radar
+
+  scout:
+    <<: *common
+    command: python3 -m src.scout
+
+  promote:
+    <<: *common
+    command: python3 -m src.promote
+
+  cover-letter:
+    <<: *common
+    command: python3 -m src.cover_letter
+
+  gmail-watch:
+    <<: *common
+    command: python3 -m src.gmail_watch
+
+  refresh:
+    <<: *common
+    command: python3 -m src.refresh
+
+  process:
+    <<: *common
+    command: python3 -m src.process

@@ -1,0 +1,24 @@
+# Config (contains secrets)
+config.yaml
+
+# Credentials
+credentials.json
+gmail_credentials.json
+gmail_client_secret.json
+gmail_token.json
+
+# Runtime data
+.cache/
+data/
+radar.csv
+*.log
+
+# Python
+__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# OS
+.DS_Store

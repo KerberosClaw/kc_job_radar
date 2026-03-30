@@ -1,0 +1,12 @@
+.git
+.cache
+.DS_Store
+data/
+config.yaml
+credentials.json
+gmail_credentials.json
+radar.csv
+__pycache__
+*.pyc
+specs/
+docs/
